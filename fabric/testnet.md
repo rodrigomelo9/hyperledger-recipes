@@ -13,8 +13,8 @@ You must always work into the `test-network` directory: `cd fabric-samples/test-
 ```
 
 Where:
-* `createChannel [-c channelName]`: creta *mychannel* or *channelName* when specified.
-* `-s couchdb`: specify to use coundDB instead of levelDB.
+* `createChannel [-c channelName]`: create *mychannel* or *channelName* when specified.
+* `-s couchdb`: specify to use couchDB instead of levelDB.
 * `-ca`: used to add Certificate Authorities.
 
 You can use `docker ps` to check the quantity of nodes:
@@ -25,6 +25,8 @@ You can use `docker ps` to check the quantity of nodes:
 Channel creation can be also performed when the network is running with `./network.sh createChannel [-c channelName]`
 
 You can start a chaincode on the channel using `./network.sh deployCC [-c channelName]`
+
+> **Note:** two more nodes are added, one by peer, to run the chaincode (`docker ps` to verify it).
 
 # Interacting with the network
 
@@ -79,4 +81,4 @@ peer chaincode query -C mychannel -n basic -c '{"Args":["ReadAsset","asset6"]}'
 ./network.sh down
 ```
 
-> **Note:** it must be run between `./network.sh up` invocations
+> **Note:** it must be run between `./network.sh up` invocations.
